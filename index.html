@@ -985,4 +985,67 @@
                 links.style.top = '60px';
                 links.style.right = '1rem';
                 links.style.padding = '1rem';
-                links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1
+                links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                links.style.zIndex = '999';
+                links.style.gap = '1rem';
+                links.style.borderRadius = '5px';
+            }
+        }
+
+        // Responsive behavior
+        function handleResize() {
+            const links = document.getElementById('nav-links');
+            const toggle = document.getElementById('menu-toggle');
+            if (window.innerWidth <= 768) {
+                toggle.style.display = 'block';
+                links.style.display = 'none';
+            } else {
+                toggle.style.display = 'none';
+                links.style.display = 'flex';
+                links.style.flexDirection = 'row';
+                links.style.position = 'static';
+                links.style.boxShadow = 'none';
+                links.style.background = 'transparent';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('load', handleResize);
+
+        // Card scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = { threshold: 0.1 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.step-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s";
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.advantage-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+    </html>
