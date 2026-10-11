@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPTOPIA| Community-Driven Experiences</title>
+    <meta name="description" content="UPTOPIA offers curated hospitality experiences that connect passionate hosts with community-minded attendees.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3e362e;
+            --secondary: #000000;
+            --dark: #3e362e;
+            --light: #000000;
+            --accent: #ffd166;
+            --text: #333333;
+            --other: #fffdd0;
+            --some: #ffffff;
+            --card-bg: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+            
+
+            
+    
+        
+        
+        /* Header & Navigation */
+        .navbar {
+            background-color: var(--light);
+            box-shadow: var(--light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: #ffffff;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background-color: var(--light);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #000000;
+            transform: translateY(-3px);
+            box-shadow: #000000;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--light);
+            color: #ffffff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--light);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--light);
+        }
+        
+        
+
+        /* Hero Section */
+        .hero-section {
+            padding: 180px 5% 120px;
+            background: linear-gradient(to right, #000000 50%, #3162d3 50%);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-text {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .hero-paragraph {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            max-width: 500px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            display: block;
+            margin-left: auto;
+        }
+
+        .stats-circle {
+            position: absolute;
+            bottom: -50px;
+            right: 50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgb(3, 3, 94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 5px dotted white;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .stats-circle h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        h5 {
+            position: relative;
+            color: #fff;
+            background-color: rgb(3, 3, 94);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* Carousel Section */
+        .hero-carousel {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            height: 500px;
+            perspective: 2000px;
+            z-index: 1;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+        
+        .carousel-item {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), 
+                        opacity 0.8s ease, 
+                        z-index 0.8s ease;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-item.prev {
+            transform: translateX(-75%) scale(0.8);
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .carousel-item.next {
+            transform: translateX(75%) scale(0.8);
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .carousel-item.active {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+            z-index: 2;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .carousel-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-arrow:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 60px 5%;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .client-logo {
+            height: 60px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+
+
+    
+        /*Rest of your existing styles... */
+
+            /* What We Do Section */
+        .what-we-do {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: 1px solid #333;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .service-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+            background-color: rgba(255, 209, 102, 0.1);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .service-content p {
+            color: #ddd;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background-color: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="rgba(255,107,107,0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .how-it-works .section-title h2 {
+            color: var(--accent);
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .step-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        
+        .step-card p {
+            color: #ddd;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            padding: 100px 0;
+            background-color: #000000;
+        }
+        
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .advantage-card {
+            text-align: center;
+            padding: 40px 25px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .advantage-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .advantage-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        
+        .advantage-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .advantage-card p {
+            color: #ddd;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)" /></svg>');
+            background-size: 80%;
+            background-position: center;
+            opacity: 0.3;
+        }
+        
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn-light {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline-light {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--light);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none ;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        /* [Previous CSS content remains the same from .what-we-do through footer] */
+
+
+
+/* ===== Base Mobile Styles ===== */
+.hero-section {
+  padding: 150px 5% 80px;
+  background: #000000;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-text {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.hero-image {
+  margin-top: 40px;
+  position: relative;
+}
+
+.stats-circle {
+  width: 150px;
+  height: 150px;
+  margin: -30px auto 0;
+  /* ...other circle styles... */
+}
+
+/* ===== Tablet (768px+) ===== */
+@media (min-width: 768px) {
+  .hero-text {
+    font-size: 3rem;
+  }
+  .stats-circle {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* ===== Small Desktop (992px+) ===== */
+@media (min-width: 992px) {
+  .hero-section {
+    background: linear-gradient(to right, #000000 50%, #3162d3 50%);
+    padding: 180px 5% 120px;
+  }
+  
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .hero-content {
+    text-align: left;
+    padding-right: 50px;
+    flex: 1;
+  }
+  
+  .hero-image {
+    margin-top: 0;
+    flex: 1;
+  }
+  
+  .stats-circle {
+    position: absolute;
+    bottom: -50px;
+    right: 50px;
+    margin: 0;
+  }
+}
+
+/* ===== Large Desktop (1200px+) ===== */
+@media (min-width: 1200px) {
+  .hero-text {
+    font-size: 4.5rem;
+  }
+  .stats-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ===== Mobile Overrides (LAST in CSS) ===== */
+@media (max-width: 767px) {
+  /* Only for mobile-specific fixes */
+  .hero-btns {
+    flex-direction: column;
+  }
+  .stats-circle h1 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/*Mobile menu adjustments */
+            .navbar-collapse {
+                background-color: rgba(3, 3, 94, 0.95);
+                padding: 15px;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+            
+            .nav-item {
+                margin: 5px 0;
+            }
+
+
+        
+
+    </style>
+</head>
+<body>
+
+    
+    <!-- Navigation -->
+    <nav id="navbar" style="position: sticky; top: 0; background:var(--light); z-index: 1000; border-bottom: 1px solid #333; padding: 1rem 0; font-family: Arial, sans-serif;">
+        <div style="display: flex; justify-content: space-between; align-items: left; max-width: 1200px; margin: 0 auto; padding: 0 1rem; background-color: var(--light);" >
+            
+            <!-- Logo -->
+            <a href="#" style="font-size: 1.5rem; font-weight: bold; color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; background:var(--light);">
+                <i class="fas fa-utensils"></i> UPTOPIA
+            </a>
+    
+            <!-- Hamburger Button -->
+            <button onclick="toggleMenu()" style="font-size: 1.5rem; background: transparent; border: none; cursor: pointer; display: none; color: white;" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+
+        
+        
+                
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" class="btn btn-primary">Sign Up</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Toggle Script -->
+    <script>
+      function toggleMenu() {
+        const links = document.getElementById('nav-links');
+        if (links.style.display === 'flex' || links.style.display === '') {
+          links.style.display = 'none';
+        } else {
+          links.style.display = 'flex';
+          links.style.flexDirection = 'column';
+          links.style.background = '#000000';
+          links.style.position = 'absolute';
+          links.style.top = '60px';
+          links.style.right = '1rem';
+          links.style.padding = '1rem';
+          links.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          links.style.zIndex = '999';
+        }
+      }
+
+      // Responsive behavior
+      function handleResize() {
+        const links = document.getElementById('nav-links');
+        const toggle = document.getElementById('menu-toggle');
+        if (window.innerWidth <= 768) {
+          toggle.style.display = 'block';
+          links.style.display = 'none';
+        } else {
+          toggle.style.display = 'none';
+          links.style.display = 'flex';
+          links.style.flexDirection = 'row';
+          links.style.position = 'static';
+          links.style.boxShadow = 'none';
+        }
+      }
+
+      window.addEventListener('resize', handleResize);
+      window.addEventListener('load', handleResize);
+    </script>
+                                       
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h5>Physiotherapy Clinic</h5>
+                <h1 class="hero-text">Improve Your Life choices</h1>
+                <p class="hero-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut iure
+                    laudantium suscipit provident reprehenderit, officiis cumque quibusdam.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-primary">Book Appointment</a>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                     alt="Outdoor adventure" 
+                     class="hero-main-image"
+                     loading="lazy">
+                <div class="stats-circle">
+                    <h1>870+ Successfull Treatment</h1>
+                </div>
+            </div>
+
+
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Feature Themes </h2>
+            </div>
+            <div class="client-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_News_logo.png/800px-Google_News_logo.png" alt="Google News" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/TechCrunch_logo.svg/1280px-TechCrunch_logo.svg.png" alt="TechCrunch" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Forbes_logo.svg/2560px-Forbes_logo.svg.png" alt="Forbes" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/TIME_logo_2016.svg/1200px-TIME_logo_2016.svg.png" alt="Time" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Entrepreneur_logo.svg/2560px-Entrepreneur_logo.svg.png" alt="Entrepreneur" class="client-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Offer</h2>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Curated Experiences</h3>
+                        <p>We carefully select and vet hosts to ensure high-quality, memorable experiences that bring people together in meaningful ways.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Community Building</h3>
+                        <p>Our algorithm connects like-minded individuals to foster genuine relationships and build vibrant local communities.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Secure Platform</h3>
+                        <p>We provide a safe, reliable platform for hosts and attendees with secure payments and verified profiles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Discover Experiences</h3>
+                    <p>Browse our curated selection of gatherings in your area - from cooking classes to nature hikes and game nights.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Book Your Spot</h3>
+                    <p>Reserve your place with our secure booking system. Receive all details and preparation instructions.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Connect & Enjoy</h3>
+                    <p>Attend the event, meet like-minded people, and create meaningful connections in a welcoming environment.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Become a Host</h3>
+                    <p>Share your passion! Apply to host your own events and build your community following.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose UPTOPIA</h2>
+            </div>
+            <div class="advantages">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Authentic Connections</h3>
+                    <p>Our matching algorithm ensures you meet people who share your interests and values.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Experiences</h3>
+                    <p>Every host is vetted to ensure exceptional, memorable gatherings.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>Verified profiles and secure payments give you peace of mind.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Focus</h3>
+                    <p>We're building networks that extend beyond single events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Discover unique experiences in your area or start hosting your own gatherings. Join thousands of community builders on UPTOPIA.</p>
+            <div class="cta-btns">
+                <a href="#" class="btn btn-light">Find Experiences</a>
+                <a href="#" class="btn btn-outline-light">Become a Host</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+<footer>
+
+<div style="margin: 20px auto; max-width: 1200px; text-align: center;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 30px;">
+        <div class="footer-column" style="margin: 15px; min-width: 200px;">
+            <h3>UPTOPIA Solutions</h3>
+            <p style="margin: 15px 0;">Creating innovative solutions that bridge communities and technology for sustainable impact.</p>
+            <div style="margin-top: 20px;"></div>
+        </div>
+        
+        <div class="footer-column" style="margin: 15px; min-width: 200px;">
+            <h3>Values</h3>
+            <ul class="contact-info" style="list-style: none; padding: 0; margin: 15px 0;">
+                <li style="margin: 8px 0;">
+                    <span>Teamwork</span>
+                </li>
+                <li style="margin: 8px 0;">
+                    <span>Innovation</span>
+                </li>
+                <li style="margin: 8px 0;">
+                    <span>Reliability</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="footer-column" style="margin: 15px; min-width: 200px;">
+            <h3>Quick Links</h3>
+            <ul class="footer-links" style="list-style: none; padding: 0; margin: 15px 0;">
+                <li style="margin: 8px 0;"><a href="index.html">Home</a></li>
+                <li style="margin: 8px 0;"><a href="solutions.html">Solutions</a></li>
+                <li style="margin: 8px 0;"><a href="case-studies.html">Case-studies</a></li>
+                <li style="margin: 8px 0;"><a href="about.html">About</a></li>
+                <li style="margin: 8px 0;"><a href="#">contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column" style="margin: 15px; min-width: 200px;">
+            <h3>legal</h3>
+            <ul class="footer-links" style="list-style: none; padding: 0; margin: 15px 0;">
+                <li style="margin: 8px 0;"><a href="legal.html#privacy">Privacy Policy</a></li>
+                <li style="margin: 8px 0;"><a href="legal.html#terms">Terms of Service</a></li>
+                <li style="margin: 8px 0;"><a href="legal.html#cookie">Cookie Policy</a></li>
+                <li style="margin: 8px 0;"><a href="legal.html#accessibility">Accessibility</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column" style="margin: 15px; min-width: 200px;">
+            <h3>Contact Us</h3>
+            <ul class="contact-info" style="list-style: none; padding: 0; margin: 15px 0;">
+                <li style="margin: 8px 0;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Remote Worldwide</span>
+                </li>
+                <li style="margin: 8px 0;">
+                    <i class="fas fa-phone"></i>
+                    <span>COMING - SOON</span>
+                </li>
+                <li style="margin: 8px 0;">
+                    <i class="fas fa-envelope"></i>
+                    <span>apacheremembers982@gmail.com</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright" style="margin-top: 30px; text-align: center;">
+        <p style="margin: 10px 0;">&copy; 2023 UPTOPIA Solutions, all rights reserved.</p>
+        <p style="margin: 10px 0;">A hospitality and digital services company</p>
+    </div>
+</div>
+    </footer>
+</body>
+</html>
+
+    <!-- [Rest of your HTML content remains the same...] -->
+
+    <script>
+        // Navigation toggle for mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            let currentIndex = 0;
+            const totalItems = carouselItems.length;
+            
+            function updateCarousel() {
+                carouselItems.forEach((item, index) => {
+                    item.classList.remove('active', 'prev', 'next');
+                    
+                    if (index === currentIndex) {
+                        item.classList.add('active');
+                    } else if (index === (currentIndex - 1 + totalItems) % totalItems) {
+                        item.classList.add('prev');
+                    } else if (index === (currentIndex + 1) % totalItems) {
+                        item.classList.add('next');
+                    }
+                });
+                
+                carouselDots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            }
+            
+            function startAutoSlide() {
+                setInterval(nextSlide, 5000);
+            }
+            
+            prevArrow.addEventListener('click', prevSlide);
+            nextArrow.addEventListener('click', nextSlide);
+            
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            updateCarousel();
+            startAutoSlide();
+            
+
+
+
+
+      
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                });
+            });
+            
+            // Simple animation for cards on scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            // Animate case study cards
+            document.querySelectorAll('.case-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                observer.observe(card);
+            });
+
+            // Animate featured case study
+            const featuredContainer = document.querySelector('.featured-container');
+            featuredContainer.style.opacity = "0";
+            featuredContainer.style.transform = "translateY(20px)";
+            featuredContainer.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+            observer.observe(featuredContainer);
+
+            // Animate testimonial cards
+            document.querySelectorAll('.testimonial-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s";
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
+
